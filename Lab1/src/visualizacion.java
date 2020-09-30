@@ -3,39 +3,59 @@
 	import javax.swing.*;
 	
 	
-public class visualizacion extends JPanel
+public class visualizacion extends JPanel implements ActionListener 
 {
-		
-		public visualizacion()
+	plano coordenadas;
+		public visualizacion() 
 		{
-			SpringLayout layout = new SpringLayout();
+			
+			JButton Bguardar;
+			//FlowLayout layout = new FlowLayout();
 			 this.setBorder(BorderFactory.createTitledBorder("Visualización"));
+			 this.setSize(200, 200);
 			 
-			 JPanel panel = new JPanel();
-			 panel.setLayout(layout);
-		     JLabel label = new JLabel("Enter Name: ");
-		     JTextField textField = new JTextField("", 10);
-		     panel.add(label);
-		     panel.add(textField);
-		     
+			 //JPanel panel = new JPanel();
+			 //panel.setLayout(layout);
+			 
+
+			 //JPanel panel = new JPanel();
+			 this.setLayout(new BorderLayout());
+
+			 //panel.setSize(150, 300);
+
+			 
+			
+			 
+			 coordenadas = new plano();
+			 //panel.add(coordenadas);
+			 this.add( coordenadas, BorderLayout.CENTER);
+
+
 		     JPanel buttonPanel1 = new JPanel(new FlowLayout());
-			 buttonPanel1.add(new JButton("Guardar"));
-		     panel.add(buttonPanel1);
+		     Bguardar = new JButton(" GUARDAR");
 		     
-		     layout.putConstraint(SpringLayout.WEST, label,25,
-			         SpringLayout.WEST, this);
-			     layout.putConstraint(SpringLayout.NORTH, label,100,
-			         SpringLayout.NORTH, this);
-			     layout.putConstraint(SpringLayout.WEST, textField,100,
-			         SpringLayout.EAST, label);
-			     layout.putConstraint(SpringLayout.NORTH, textField,100,
-			         SpringLayout.NORTH, this);
-			     layout.putConstraint(SpringLayout.EAST, panel,25,
-			         SpringLayout.EAST, textField);
-			     layout.putConstraint(SpringLayout.SOUTH, panel,25,
-			         SpringLayout.SOUTH, textField);
-			     
-			this.add(panel);
+		     JLabel label = new JLabel("F muestreo: ");
+		     JTextField textField = new JTextField("", 7);
+		     buttonPanel1.add(label);
+		     buttonPanel1.add(textField);
+		     
+		        JButton start = new JButton("Aplicar");
+		        start.addActionListener(this);
+		        //start.setText("Aplicar");
+		        buttonPanel1.add(start);
+
+		     this.add(buttonPanel1, BorderLayout.SOUTH);
+			 //panel.add(Bguardar);
+			 this.add( Bguardar, BorderLayout.NORTH);
+		     //panel.add(buttonPanel1);   
+
+
+			
+		}
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
 		}
 
 }

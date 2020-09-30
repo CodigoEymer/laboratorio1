@@ -10,7 +10,7 @@ public class GUI
 	active_signals Active;
 	
 	
-		private JFrame mainFrame;;
+		public JFrame mainFrame;;
 		
 		public static void main(String [] args)
 		{
@@ -20,7 +20,9 @@ public class GUI
 		public GUI()
 		{
 			  mainFrame = new JFrame("Diagramación GUI");
-		      mainFrame.setSize(1024,348);
+			  mainFrame.setDefaultCloseOperation(mainFrame.EXIT_ON_CLOSE);
+
+		      mainFrame.setSize(1024,500);
 		      mainFrame.setLayout(new GridLayout(1, 3));
 
 		      SChannel = new seleccion_canal();
