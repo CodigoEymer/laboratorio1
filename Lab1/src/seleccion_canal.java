@@ -33,12 +33,11 @@ public class seleccion_canal extends JPanel
 		    panelName.addElement("Análogo");
 		    panelName.addElement("Digital");
 		    
-		    final JComboBox listCombo = new JComboBox(panelName);    
-		    listCombo.setSelectedIndex(1);
+		    final JComboBox listCombo = new JComboBox(panelName);
+		    
+		    listCombo.setSelectedIndex(0);
 		
 		    JScrollPane listComboScrollPane = new JScrollPane(listCombo);    
-		
-		    //JButton showButton = new JButton("Show");
 		
 		    listCombo.addActionListener(new ActionListener() {
 		       public void actionPerformed(ActionEvent e) { 
