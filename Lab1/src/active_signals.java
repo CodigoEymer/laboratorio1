@@ -32,6 +32,8 @@
 				JPanel buttonPanel1 = new JPanel(new FlowLayout());
 				buttonPanel1.add(new JButton("Aplicar"));
 			    
+				
+				
 				panelsel.add(buttonPanel1);
 				
 			    panel.add(panelsel);

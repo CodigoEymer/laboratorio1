@@ -10,6 +10,7 @@ public class seleccion_canal extends JPanel
 		JLabel statusLabel;
 		JPanel uno;
 		plano Plane;
+		visualizacion Visual;
 		
 		public seleccion_canal()
 		{
@@ -17,7 +18,7 @@ public class seleccion_canal extends JPanel
 		    this.setSize(300,300);
 		    this.setBorder(BorderFactory.createTitledBorder("Selección de canal"));
 		    
-		    statusLabel = new JLabel("",JLabel.CENTER);
+		    statusLabel = new JLabel("Seleccione un canal.",JLabel.CENTER);
 		    
 		    uno = new JPanel();
 		    uno.setLayout(new GridLayout(3 , 1));
@@ -57,14 +58,15 @@ public class seleccion_canal extends JPanel
 		    }); 
 		    
 		    Plane = new plano();
-		    
+		    Visual = new visualizacion();
+		    //Graphics g = Plane.getGraphics();
 		    ///////////////////////////
 		    //buttonPanel1.add(listCombo);
 		    JButton Canal1 = new JButton("Canal 1");
 		    buttonPanel1.add(Canal1);
 		    Canal1.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
-		            //visualizacion.plano.graficar(visualizacion.plano.getGraphics(),lineal());
+		        	 
 		         }          
 		      });
 		    
@@ -177,20 +179,7 @@ public class seleccion_canal extends JPanel
 		}
 		
 		
-		static double[] lineal() {
-
-			int longitud = 1000;
-			double m = 1;
-			double b = 0;
-			double[] vector = new double[longitud];		
-			
-			for(int i=0;i<longitud;i++)
-	        {
-				vector[i] = m*i+b;
-	        }
-			return vector;
-			//double[] arrayx = {1,2,2,2,2,3};
-		}
+		
 
 
 }
