@@ -14,11 +14,13 @@ public class visualizacion extends JPanel implements ActionListener
 			 this.setBorder(BorderFactory.createTitledBorder("Visualización"));
 			 this.setSize(200, 200);
 			 
-			 //JPanel panel = new JPanel();
-			 //panel.setLayout(layout);
-			 
 
-			 //JPanel panel = new JPanel();
+			 BorderLayout layout = new BorderLayout();
+			 layout.setHgap(10);
+			 layout.setVgap(8);
+			 this.setLayout(layout);
+			 
+			 
 			 this.setLayout(new BorderLayout());
 
 			 //panel.setSize(150, 300);
@@ -48,7 +50,11 @@ public class visualizacion extends JPanel implements ActionListener
 			 //panel.add(Bguardar);
 			 this.add( Bguardar, BorderLayout.NORTH);
 		     //panel.add(buttonPanel1);   
-
+			 
+			 JPanel panelNE = new JPanel(new FlowLayout());
+			 JPanel panelNW = new JPanel(new FlowLayout());
+			 this.add( panelNE, BorderLayout.EAST);
+			 this.add(panelNW, BorderLayout.WEST);
 
 			
 		}

@@ -1,12 +1,15 @@
 	import java.awt.*;
+	import java.awt.Graphics;
 	import java.awt.event.*;
 	import javax.swing.*;
-	
+	import java.awt.Color;
 	
 public class seleccion_canal extends JPanel
 {
 
 		JLabel statusLabel;
+		JPanel uno;
+		plano Plane;
 		
 		public seleccion_canal()
 		{
@@ -15,7 +18,10 @@ public class seleccion_canal extends JPanel
 		    this.setBorder(BorderFactory.createTitledBorder("Selección de canal"));
 		    
 		    statusLabel = new JLabel("",JLabel.CENTER);
-		
+		    
+		    uno = new JPanel();
+		    uno.setLayout(new GridLayout(3 , 1));
+		      
 		    CardLayout layout = new CardLayout();
 		    layout.setHgap(10);
 		    layout.setVgap(10);
@@ -41,7 +47,7 @@ public class seleccion_canal extends JPanel
 		
 		    listCombo.addActionListener(new ActionListener() {
 		       public void actionPerformed(ActionEvent e) { 
-		          String data = "";
+		          String data = "Seleccione un canal.";
 		          if (listCombo.getSelectedIndex() != -1) {  
 		             CardLayout cardLayout = (CardLayout)(panel.getLayout());
 		             cardLayout.show(panel,(String)listCombo.getItemAt(listCombo.getSelectedIndex()));	               
@@ -50,32 +56,141 @@ public class seleccion_canal extends JPanel
 		       }
 		    }); 
 		    
+		    Plane = new plano();
+		    
 		    ///////////////////////////
 		    //buttonPanel1.add(listCombo);
-		    buttonPanel1.add(new JButton("Canal 1"));
-		    buttonPanel1.add(new JButton("Canal 2"));
-		    buttonPanel1.add(new JButton("Canal 3"));
-		    buttonPanel1.add(new JButton("Canal 4"));
-		    buttonPanel1.add(new JButton("Canal 5"));
-		    buttonPanel1.add(new JButton("Canal 6"));
-		    buttonPanel1.add(new JButton("Canal 7"));
-		    buttonPanel1.add(new JButton("Canal 8"));
+		    JButton Canal1 = new JButton("Canal 1");
+		    buttonPanel1.add(Canal1);
+		    Canal1.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            //visualizacion.plano.graficar(visualizacion.plano.getGraphics(),lineal());
+		         }          
+		      });
+		    
+		    
+		    JButton Canal2 = new JButton("Canal 2");
+		    buttonPanel1.add(Canal2);
+		    Canal2.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            statusLabel.setText("Canal 2 seleccionado.");
+		         }          
+		      });
+		    
+		    JButton Canal3 = new JButton("Canal 3");
+		    buttonPanel1.add(Canal3);
+		    Canal3.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            statusLabel.setText("Canal 3 seleccionado.");
+		         }          
+		      });
+		    
+		    JButton Canal4 = new JButton("Canal 4");
+		    buttonPanel1.add(Canal4);
+		    Canal4.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            statusLabel.setText("Canal 4 seleccionado.");
+		         }          
+		      });
+		    
+		    JButton Canal5 = new JButton("Canal 5");
+		    buttonPanel1.add(Canal5);
+		    Canal5.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            statusLabel.setText("Canal 5 seleccionado.");
+		         }          
+		      });
+		    
+		    JButton Canal6 = new JButton("Canal 6");
+		    buttonPanel1.add(Canal6);
+		    Canal6.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            statusLabel.setText("Canal 6 seleccionado.");
+		         }          
+		      });
+		    
+		    JButton Canal7 = new JButton("Canal 7");
+		    buttonPanel1.add(Canal7);
+		    Canal7.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            statusLabel.setText("Canal 7 seleccionado.");
+		         }          
+		      });
+		    
+		    JButton Canal8 = new JButton("Canal 8");
+		    buttonPanel1.add(Canal8);
+		    Canal8.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            statusLabel.setText("Canal 8 seleccionado.");
+		         }          
+		      });
 		    
 		    
 		    //buttonPanel2.add(listCombo);
-		    buttonPanel2.add(new JButton("Canal 1"));
-		    buttonPanel2.add(new JButton("Canal 2"));
-		    buttonPanel2.add(new JButton("Canal 3"));
-		    buttonPanel2.add(new JButton("Canal 4"));
+		    JButton Canal11 = new JButton("Canal 1");
+		    buttonPanel2.add(Canal11);
+		    Canal11.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            statusLabel.setText("Canal 1 seleccionado.");
+		         }          
+		      });
 		    
 		    
-		    //panel.add(listCombo);
+		    JButton Canal21 = new JButton("Canal 2");
+		    buttonPanel2.add(Canal21);
+		    Canal21.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            statusLabel.setText("Canal 2 seleccionado.");
+		         }          
+		      });
+		    
+		    JButton Canal31 = new JButton("Canal 3");
+		    buttonPanel2.add(Canal31);
+		    Canal31.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            statusLabel.setText("Canal 3 seleccionado.");
+		         }          
+		      });
+		    
+		    JButton Canal41 = new JButton("Canal 4");
+		    buttonPanel2.add(Canal41);
+		    Canal41.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		            statusLabel.setText("Canal 4 seleccionado.");
+		         }          
+		      });
+		    
+		    
+		    
 		    panel.add("Análogo", buttonPanel1);
 		    panel.add("Digital", buttonPanel2);
-			  
+			
+		    uno.add(listComboScrollPane);
+		    
+		    uno.add(panel);
+		    
+		    uno.add(statusLabel);
+		    
 		    this.add(listComboScrollPane);
 		   // this.add(showButton);
-			this.add(panel);
+			this.add(uno);
 		}
+		
+		
+		static double[] lineal() {
+
+			int longitud = 1000;
+			double m = 1;
+			double b = 0;
+			double[] vector = new double[longitud];		
+			
+			for(int i=0;i<longitud;i++)
+	        {
+				vector[i] = m*i+b;
+	        }
+			return vector;
+			//double[] arrayx = {1,2,2,2,2,3};
+		}
+
 
 }

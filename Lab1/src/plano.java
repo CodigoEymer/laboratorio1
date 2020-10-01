@@ -1,5 +1,6 @@
 //package graficadora;
 import java.awt.Color;
+
 import java.awt.Graphics;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -31,19 +32,20 @@ public class plano extends JPanel{
 
     // y=c*x2 +c*x +c
 
-     public void paintSQRFunc(Graphics g, double x2mult,
-             double x1mult,double cons, double x1,double x2)
-     {
+    public void graficador(Graphics g, double[] vector)    // vector es la señal de entrada
+    {
 
-         for(double i=x1;i<x2;i++)
-         {
-             double y = ((double)Math.pow(i,2)*x2mult)+i*x1mult+cons;
-             double xp = i+1;
-             double yp = ((double)Math.pow(xp,2)*x2mult)+xp*x1mult+cons;
-             g.drawLine((int)coord_x(i), (int)coord_y(y), (int)coord_x(xp), (int)coord_y(yp));
+        for(int i=0;i<vector.length;i++)
+        {
+            int x2 = i+1;
+            double y1 = vector[i];
+            double y2 = vector[x2];
+            g.drawLine((int)coord_x(i), (int)coord_y(y1), (int)coord_x(x2), (int)coord_y(y2));
 
-         }
-     }
+        }
+    }
+
+
 
      private double coord_x(double x)
      {
