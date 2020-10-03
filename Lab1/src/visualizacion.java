@@ -10,6 +10,8 @@ public class visualizacion extends JPanel
 		{
 			
 			JButton Bguardar;
+			JButton Baplicar;
+			
 			//FlowLayout layout = new FlowLayout();
 			 this.setBorder(BorderFactory.createTitledBorder("Visualización"));
 			 this.setSize(200, 200);
@@ -35,11 +37,14 @@ public class visualizacion extends JPanel
 
 		     JPanel buttonPanel1 = new JPanel(new FlowLayout());
 		     Bguardar = new JButton(" GUARDAR");
+		     Baplicar = new JButton(" APLICAR");
 		     
-		     JLabel label = new JLabel("F muestreo: ");
+		     
+		     JLabel label = new JLabel("T muestreo: ");
 		     JTextField textField = new JTextField("", 7);
 		     buttonPanel1.add(label);
 		     buttonPanel1.add(textField);
+		     buttonPanel1.add(Baplicar);
 		     
 		        //JButton start = new JButton("Aplicar");
 		        //start.addActionListener(this);
@@ -59,14 +64,24 @@ public class visualizacion extends JPanel
 			 
 			 Bguardar.addActionListener(new ActionListener() {
 			         public void actionPerformed(ActionEvent e) {
-			        	 coordenadas.graficador(getGraphics(), lineal());
+			        	 //coordenadas.graficador(getGraphics(), lineal());
 			         }          
 			      });
-		}
+			 
+			 Baplicar.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+		        	 coordenadas.graficador(getGraphics(), lineal());
+		         }          
+		      });
+			 
+			 
+			}
+		
+		
 		
 		static double[] lineal() {
 
-			int longitud = 10;
+			int longitud = 100;
 			double m = 1;
 			double b = 0;
 			double[] vector = new double[longitud];		

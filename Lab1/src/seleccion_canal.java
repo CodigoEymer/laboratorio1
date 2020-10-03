@@ -21,7 +21,7 @@ public class seleccion_canal extends JPanel
 		    statusLabel = new JLabel("Seleccione un canal.",JLabel.CENTER);
 		    
 		    uno = new JPanel();
-		    uno.setLayout(new GridLayout(3 , 1));
+		    uno.setLayout(new GridLayout(2 , 2));
 		      
 		    CardLayout layout = new CardLayout();
 		    layout.setHgap(10);
