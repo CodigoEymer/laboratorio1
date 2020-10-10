@@ -1,14 +1,16 @@
 	import java.awt.*;
 	import java.awt.event.*;
 	import javax.swing.*;
-	
-	
+	import java.io.BufferedWriter;
+	import java.io.FileWriter;
+import java.io.IOException;
 public class visualizacion extends JPanel 
 {
+	GUI gui;
 	plano coordenadas;
-		public visualizacion() 
+		public visualizacion(GUI gui) 
 		{
-			
+			this.gui = gui;
 			JButton Bguardar;
 			JButton Baplicar;
 			
@@ -64,7 +66,8 @@ public class visualizacion extends JPanel
 			 
 			 Bguardar.addActionListener(new ActionListener() {
 			         public void actionPerformed(ActionEvent e) {
-			        	 //coordenadas.graficador(getGraphics(), lineal());
+			        	 gui.guardarComo();
+			        	 System.out.println("Guardado");
 			         }          
 			      });
 			 

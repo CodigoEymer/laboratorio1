@@ -58,7 +58,7 @@ public class seleccion_canal extends JPanel
 		    }); 
 		    
 		    Plane = new plano();
-		    Visual = new visualizacion();
+		    //Visual = new visualizacion();
 		    //Graphics g = Plane.getGraphics();
 		    ///////////////////////////
 		    //buttonPanel1.add(listCombo);
@@ -66,7 +66,7 @@ public class seleccion_canal extends JPanel
 		    buttonPanel1.add(Canal1);
 		    Canal1.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
-		        	 
+		        	 statusLabel.setText("Canal 1 seleccionado.");
 		         }          
 		      });
 		    

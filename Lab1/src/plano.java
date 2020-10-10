@@ -55,7 +55,6 @@ public class plano extends JPanel{
      private double coord_y(double y)
      {
           double real_y = -y+(this.getHeight()/2)+49;
-          System.out.println(real_y);
           return (real_y);
      }
 }
