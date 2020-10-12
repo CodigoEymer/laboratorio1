@@ -24,14 +24,13 @@ public class GUI
 		
 		public GUI()
 		{
-			  textArea = new JTextArea();//Es usado para guardar los valores de las señales
+			  textArea = new JTextArea();//Es usado para guardar los valores de las seÃ±ales
 			  //JPanel fondo = new JPanel();
 			  
-			  mainFrame = new JFrame("Diagramación GUI");
+			  mainFrame = new JFrame("DiagramaciÃ³n GUI");
 			  mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		      mainFrame.setSize(800,440);
-		      //fondo.setSize(1200, 740);
 
 		      SChannel = new seleccion_canal();
 		      SChannel.setBounds(0, 0, 200, 400);

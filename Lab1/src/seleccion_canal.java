@@ -17,13 +17,11 @@ public class seleccion_canal extends JPanel
 		
 		public seleccion_canal()
 		{
-			
-			
 			BorderLayout layout = new BorderLayout();
 			this.setLayout(layout);
 			
 			final JPanel panel = new JPanel();
-		    this.setBorder(BorderFactory.createTitledBorder("SelecciÛn de canal"));
+		    this.setBorder(BorderFactory.createTitledBorder("Selecci√≥n de canal"));
 		    
 		    statusLabel = new JLabel("Seleccione un canal.");
 		    
@@ -42,7 +40,7 @@ public class seleccion_canal extends JPanel
 	    
 		    final DefaultComboBoxModel<String> panelName = new DefaultComboBoxModel<String>();
 		
-		    panelName.addElement("An·logo");
+		    panelName.addElement("An√°logo");
 		    panelName.addElement("Digital");
 		    
 		    final JComboBox<String> listCombo = new JComboBox<String>(panelName);
@@ -66,7 +64,6 @@ public class seleccion_canal extends JPanel
 		             cardLayout.show(panel,(String)listCombo.getItemAt(listCombo.getSelectedIndex()));	               
 		          }              
 		          statusLabel.setText(data);
-		          
 		       }
 		    }); 
 		    
@@ -85,6 +82,7 @@ public class seleccion_canal extends JPanel
 		    Canal2.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 2 seleccionado.");
+		            Visual.canalseleccionado();
 		         }          
 		      });
 		    
@@ -168,12 +166,13 @@ public class seleccion_canal extends JPanel
 		    Canal41.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 4 seleccionado.");
+		            
 		         }          
 		      });
 		    
 		    
 		    
-		    panel.add("An·logo", buttonPanel1);
+		    panel.add("An√°logo", buttonPanel1);
 		    panel.add("Digital", buttonPanel2);
 			
 		    JPanel botones = new JPanel();
@@ -186,9 +185,5 @@ public class seleccion_canal extends JPanel
 		    //this.add(listComboScrollPane);
 			//this.add(uno);
 		}
-		
-		
-		
-
 
 }

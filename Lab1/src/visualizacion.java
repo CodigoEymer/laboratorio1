@@ -1,9 +1,21 @@
-	import java.awt.*;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import java.awt.*;
 	import java.awt.event.*;
 	import javax.swing.*;
 	import java.io.BufferedWriter;
 	import java.io.FileWriter;
 import java.io.IOException;
+
 public class visualizacion extends JPanel 
 {
 	GUI gui;
@@ -12,79 +24,66 @@ public class visualizacion extends JPanel
 		{
 			this.gui = gui;
 			JButton Bguardar;
+			JButton Bgraficar;
 			JButton Baplicar;
 			
-			//FlowLayout layout = new FlowLayout();
-			 this.setBorder(BorderFactory.createTitledBorder("Visualización"));
-			 this.setSize(200, 200);
-			 
-
-			 BorderLayout layout = new BorderLayout();
-			 //layout.setHgap(10);
-			 //layout.setVgap(8);
-			 this.setLayout(layout);
-			 
-			 
-			 this.setLayout(new BorderLayout());
-
-			 //panel.setSize(150, 300);
-
-			 
+			 ///Configuracion panel general
 			
-			 
+			 BorderLayout layout = new BorderLayout();
+			 layout.setHgap(0);
+			 layout.setVgap(10);
+			 this.setBorder(BorderFactory.createTitledBorder("VisualizaciÃ³n"));
+			 this.setLayout(layout);
+			 ///Norte
+			 JPanel panelnorte= new JPanel();
+			 Bguardar = new JButton(" Guardar");
+			 Bgraficar = new JButton("Graficar");
+			 panelnorte.add(Bguardar);
+			 panelnorte.add(Bgraficar);
+			 this.add( panelnorte, BorderLayout.NORTH);
+			 ///Centro
 			 coordenadas = new plano();
-			 //panel.add(coordenadas);
 			 this.add( coordenadas, BorderLayout.CENTER);
-
-
-		     JPanel buttonPanel1 = new JPanel(new FlowLayout());
-		     Bguardar = new JButton(" GUARDAR");
+			 ///Sur
+		     JPanel panelsur = new JPanel();
 		     Baplicar = new JButton(" APLICAR");
-		     
-		     
 		     JLabel label = new JLabel("T muestreo: ");
 		     JTextField textField = new JTextField("", 7);
-		     buttonPanel1.add(label);
-		     buttonPanel1.add(textField);
-		     buttonPanel1.add(Baplicar);
+		     panelsur.add(label);
+		     panelsur.add(textField);
+		     panelsur.add(Baplicar);
+		     this.add(panelsur, BorderLayout.SOUTH);
 		     
-		        //JButton start = new JButton("Aplicar");
-		        //start.addActionListener(this);
-		        //start.setText("Aplicar");
-		        //buttonPanel1.add(start);
-
-		     this.add(buttonPanel1, BorderLayout.SOUTH);
-			 //panel.add(Bguardar);
-			 this.add( Bguardar, BorderLayout.NORTH);
-		     //panel.add(buttonPanel1);   
-			 
 			 JPanel panelNE = new JPanel(new FlowLayout());
 			 JPanel panelNW = new JPanel(new FlowLayout());
 			 this.add( panelNE, BorderLayout.EAST);
 			 this.add(panelNW, BorderLayout.WEST);
 			 
 			 
-			 Bguardar.addActionListener(new ActionListener() {
+			 Bgraficar.addActionListener(new ActionListener() {
 			         public void actionPerformed(ActionEvent e) {
-			        	 gui.guardarComo();
-			        	 System.out.println("Guardado");
+			        	 coordenadas.graficador(lineal());
 			         }          
 			      });
 			 
-			 Baplicar.addActionListener(new ActionListener() {
+			 Bguardar.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
-		        	 coordenadas.graficador(getGraphics(), lineal());
-		         }          
+                gui.guardarComo();
+			          System.out.println("Guardado");
+		         }  
 		      });
-			 
 			 
 			}
 		
+		public void canalseleccionado() {
+			coordenadas.graficador(seno());
+			
+		}
 		
 		
 		static double[] lineal() {
 
-			int longitud = 100;
+			int longitud = 10;
 			double m = 1;
 			double b = 0;
 			double[] vector = new double[longitud];		
@@ -115,17 +114,17 @@ public class visualizacion extends JPanel
 		
 		static double[] seno() {
 
-			int longitud = 1000;
+			int longitud = 100;
 			
 			double[] vector = new double[longitud];
 			
-			double r = (Math.PI)/longitud;
+			double r = (2*Math.PI)/longitud;
 			
-			double j = 0;
+			double c = 0;
 			for(int i=0;i<longitud;i++)
 	        {
-				j = j + r;
-				vector[i] = Math.sin(j);
+				c =c+r;
+				vector[i] = Math.sin(c);
 	        }
 			return vector;
 		}
