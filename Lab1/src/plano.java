@@ -9,7 +9,11 @@ import javax.swing.JPanel;
  */
 public class plano extends JPanel{
 
-    public plano() {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	public plano() {
         init();
     }
 
