@@ -69,7 +69,7 @@ public class GUI
 		public void guardarComo() {
 			
 			double vector[];
-			vector =visualizacion.lineal();
+			vector =visualizacion.seno();
 			FileDialog fd = new FileDialog(mainFrame,"Guardar",FileDialog.SAVE);
 			fd.setVisible(true);
 			String string= "";

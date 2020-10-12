@@ -20,8 +20,10 @@ public class visualizacion extends JPanel
 {
 	GUI gui;
 	plano coordenadas;
+	seleccion_canal Sel;
+	
 		public visualizacion(GUI gui) 
-		{
+		{	
 			this.gui = gui;
 			JButton Bguardar;
 			JButton Bgraficar;
@@ -32,7 +34,7 @@ public class visualizacion extends JPanel
 			 BorderLayout layout = new BorderLayout();
 			 layout.setHgap(0);
 			 layout.setVgap(10);
-			 this.setBorder(BorderFactory.createTitledBorder("VisualizaciÃ³n"));
+			 this.setBorder(BorderFactory.createTitledBorder("Visualización"));
 			 this.setLayout(layout);
 			 ///Norte
 			 JPanel panelnorte= new JPanel();
@@ -62,7 +64,14 @@ public class visualizacion extends JPanel
 			 
 			 Bgraficar.addActionListener(new ActionListener() {
 			         public void actionPerformed(ActionEvent e) {
-			        	 coordenadas.graficador(lineal());
+			        	 //
+			        	 if (Sel.control==1) {
+			        		 coordenadas.graficador(cuadratica());
+			        	 }else if (Sel.control==2) {
+			        		 coordenadas.graficador(lineal());
+			        	 }else if (Sel.control==3) {
+			        		 coordenadas.graficador(seno());
+			        	 }
 			         }          
 			      });
 			 
@@ -74,13 +83,7 @@ public class visualizacion extends JPanel
 		      });
 			 
 			}
-		
-		public void canalseleccionado() {
-			coordenadas.graficador(seno());
-			
-		}
-		
-		
+
 		static double[] lineal() {
 
 			int longitud = 10;
