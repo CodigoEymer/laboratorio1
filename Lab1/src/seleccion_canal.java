@@ -14,6 +14,8 @@ public class seleccion_canal extends JPanel
 		
 		public seleccion_canal()
 		{
+			Visual = new visualizacion();
+			
 			final JPanel panel = new JPanel();
 		    this.setSize(300,300);
 		    this.setBorder(BorderFactory.createTitledBorder("Selección de canal"));
@@ -54,11 +56,11 @@ public class seleccion_canal extends JPanel
 		             cardLayout.show(panel,(String)listCombo.getItemAt(listCombo.getSelectedIndex()));	               
 		          }              
 		          statusLabel.setText(data);
+		          
+ 
 		       }
 		    }); 
 		    
-		    Plane = new plano();
-		    Visual = new visualizacion();
 		    //Graphics g = Plane.getGraphics();
 		    ///////////////////////////
 		    //buttonPanel1.add(listCombo);
@@ -76,6 +78,7 @@ public class seleccion_canal extends JPanel
 		    Canal2.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 2 seleccionado.");
+		            Visual.canalseleccionado();
 		         }          
 		      });
 		    
@@ -159,6 +162,7 @@ public class seleccion_canal extends JPanel
 		    Canal41.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 4 seleccionado.");
+		            
 		         }          
 		      });
 		    
@@ -177,9 +181,5 @@ public class seleccion_canal extends JPanel
 		   // this.add(showButton);
 			this.add(uno);
 		}
-		
-		
-		
-
 
 }
