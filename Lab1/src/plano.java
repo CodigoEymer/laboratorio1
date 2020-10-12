@@ -24,15 +24,14 @@ import org.jfree.data.time.TimeSeriesCollection;
  * @author
  */
 public class plano extends JPanel{
-	
 	final TimeSeries series = new TimeSeries("Mi grafica", Minute.class);
 	final TimeSeriesCollection datos = new TimeSeriesCollection(series);
 	final JFreeChart grafica = ChartFactory.createTimeSeriesChart("", "t", "v", datos, true, true, true);
 	JPanel panel1=new ChartPanel(grafica);
 
 	int minuto=0;
-	
-    public plano() {
+	private static final long serialVersionUID = 1L;
+	public plano() {
         init();
     }
 
@@ -43,7 +42,7 @@ public class plano extends JPanel{
 		this.setVisible(true);
     }
     
-    public void graficador(double[] vector)    // vector es la señal de entrada
+    public void graficador(double[] vector)    // vector es la seÃ±al de entrada
     {
 
         for(int i=0;i<vector.length-1;i++)
@@ -59,5 +58,4 @@ public class plano extends JPanel{
 			
         }
     }
-
 }

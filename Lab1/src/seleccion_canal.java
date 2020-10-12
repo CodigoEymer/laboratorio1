@@ -1,12 +1,15 @@
 	import java.awt.*;
-	import java.awt.Graphics;
 	import java.awt.event.*;
 	import javax.swing.*;
-	import java.awt.Color;
 	
 public class seleccion_canal extends JPanel
 {
 
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 		JLabel statusLabel;
 		JPanel uno;
 		plano Plane;
@@ -14,21 +17,19 @@ public class seleccion_canal extends JPanel
 		
 		public seleccion_canal()
 		{
-			Visual = new visualizacion();
+			BorderLayout layout = new BorderLayout();
+			this.setLayout(layout);
 			
 			final JPanel panel = new JPanel();
-		    this.setSize(300,300);
-		    this.setBorder(BorderFactory.createTitledBorder("SelecciÛn de canal"));
+		    this.setBorder(BorderFactory.createTitledBorder("Selecci√≥n de canal"));
 		    
-		    statusLabel = new JLabel("Seleccione un canal.",JLabel.CENTER);
+		    statusLabel = new JLabel("Seleccione un canal.");
 		    
-		    uno = new JPanel();
-		    uno.setLayout(new GridLayout(2 , 2));
+		    //uno = new JPanel();
+		    //uno.setLayout(new GridLayout(3 , 1));
 		      
-		    CardLayout layout = new CardLayout();
-		    layout.setHgap(10);
-		    layout.setVgap(10);
-		    panel.setLayout(layout);        
+		    CardLayout layout1 = new CardLayout();
+		    panel.setLayout(layout1);        
 		
 		    JPanel buttonPanel1 = new JPanel(new FlowLayout());
 		    buttonPanel1.setLayout(new BoxLayout(buttonPanel1, BoxLayout.Y_AXIS));
@@ -37,38 +38,41 @@ public class seleccion_canal extends JPanel
 		    buttonPanel2.setLayout(new BoxLayout(buttonPanel2, BoxLayout.Y_AXIS));
 		
 	    
-		    final DefaultComboBoxModel panelName = new DefaultComboBoxModel();
+		    final DefaultComboBoxModel<String> panelName = new DefaultComboBoxModel<String>();
 		
-		    panelName.addElement("An·logo");
+		    panelName.addElement("An√°logo");
 		    panelName.addElement("Digital");
 		    
-		    final JComboBox listCombo = new JComboBox(panelName);
+		    final JComboBox<String> listCombo = new JComboBox<String>(panelName);
 		    
 		    listCombo.setSelectedIndex(0);
 		
 		    JScrollPane listComboScrollPane = new JScrollPane(listCombo);    
-		
+		    FlowLayout Up = new FlowLayout();
+		    JPanel select = new JPanel();
+		    select.setLayout(Up);
+		    select.add(listComboScrollPane);
+		    //Up.setHgap(40);
+		    Up.setVgap(40);
+		    
 		    listCombo.addActionListener(new ActionListener() {
 		       public void actionPerformed(ActionEvent e) { 
+		    	   
 		          String data = "Seleccione un canal.";
 		          if (listCombo.getSelectedIndex() != -1) {  
 		             CardLayout cardLayout = (CardLayout)(panel.getLayout());
 		             cardLayout.show(panel,(String)listCombo.getItemAt(listCombo.getSelectedIndex()));	               
 		          }              
 		          statusLabel.setText(data);
-		          
- 
 		       }
 		    }); 
 		    
-		    //Graphics g = Plane.getGraphics();
-		    ///////////////////////////
-		    //buttonPanel1.add(listCombo);
+		    Plane = new plano();
 		    JButton Canal1 = new JButton("Canal 1");
 		    buttonPanel1.add(Canal1);
 		    Canal1.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
-		        	 
+		        	 statusLabel.setText("Canal 1 seleccionado.");
 		         }          
 		      });
 		    
@@ -168,18 +172,18 @@ public class seleccion_canal extends JPanel
 		    
 		    
 		    
-		    panel.add("An·logo", buttonPanel1);
+		    panel.add("An√°logo", buttonPanel1);
 		    panel.add("Digital", buttonPanel2);
 			
-		    uno.add(listComboScrollPane);
+		    JPanel botones = new JPanel();
+		    botones.add(panel);
 		    
-		    uno.add(panel);
+		    this.add(select,BorderLayout.NORTH);
+		    this.add(botones,BorderLayout.CENTER);
+		    this.add(statusLabel,BorderLayout.SOUTH);
 		    
-		    uno.add(statusLabel);
-		    
-		    this.add(listComboScrollPane);
-		   // this.add(showButton);
-			this.add(uno);
+		    //this.add(listComboScrollPane);
+			//this.add(uno);
 		}
 
 }

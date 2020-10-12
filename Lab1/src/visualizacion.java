@@ -1,3 +1,4 @@
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -8,14 +9,20 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.*;
+	import java.awt.event.*;
+	import javax.swing.*;
+	import java.io.BufferedWriter;
+	import java.io.FileWriter;
+import java.io.IOException;
 
-	
 public class visualizacion extends JPanel 
 {
-	
+	GUI gui;
 	plano coordenadas;
-		public visualizacion() 
+		public visualizacion(GUI gui) 
 		{
+			this.gui = gui;
 			JButton Bguardar;
 			JButton Bgraficar;
 			JButton Baplicar;
@@ -25,7 +32,7 @@ public class visualizacion extends JPanel
 			 BorderLayout layout = new BorderLayout();
 			 layout.setHgap(0);
 			 layout.setVgap(10);
-			 this.setBorder(BorderFactory.createTitledBorder("Visualización"));
+			 this.setBorder(BorderFactory.createTitledBorder("VisualizaciÃ³n"));
 			 this.setLayout(layout);
 			 ///Norte
 			 JPanel panelnorte= new JPanel();
@@ -61,7 +68,9 @@ public class visualizacion extends JPanel
 			 
 			 Bguardar.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
-		         }          
+                gui.guardarComo();
+			          System.out.println("Guardado");
+		         }  
 		      });
 			 
 			}
