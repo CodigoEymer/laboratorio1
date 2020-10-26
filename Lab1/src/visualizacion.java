@@ -9,15 +9,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.awt.*;
-	import java.awt.event.*;
-	import javax.swing.*;
-	import java.io.BufferedWriter;
-	import java.io.FileWriter;
-import java.io.IOException;
 
 public class visualizacion extends JPanel 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	GUI gui;
 	plano coordenadas;
 	seleccion_canal Sel;
@@ -65,11 +63,11 @@ public class visualizacion extends JPanel
 			 Bgraficar.addActionListener(new ActionListener() {
 			         public void actionPerformed(ActionEvent e) {
 			        	 //
-			        	 if (Sel.control==1) {
+			        	 if (seleccion_canal.control==1) {
 			        		 coordenadas.graficador(cuadratica());
-			        	 }else if (Sel.control==2) {
+			        	 }else if (seleccion_canal.control==2) {
 			        		 coordenadas.graficador(lineal());
-			        	 }else if (Sel.control==3) {
+			        	 }else if (seleccion_canal.control==3) {
 			        		 coordenadas.graficador(seno());
 			        	 }
 			         }          
@@ -79,6 +77,14 @@ public class visualizacion extends JPanel
 		         public void actionPerformed(ActionEvent e) {
                 gui.guardarComo();
 			          System.out.println("Guardado");
+		         }  
+		      });
+			 
+			 
+			 Baplicar.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+			          System.out.println("Tiempo de muestreo aplicado");
+			          
 		         }  
 		      });
 			 

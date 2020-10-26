@@ -6,7 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/eimer/Desktop/9 Semestre/Interfaces/Librerias JFreeChart by Recameca/Librerias JFreeChart/jcommon-1.0.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/eimer/Desktop/9 Semestre/Interfaces/Librerias JFreeChart by Recameca/Librerias JFreeChart/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/NDRS_/Documents/Universidad/2020 II/Interfaces/Librerias JFreeChart by Recameca/Librerias JFreeChart/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/NDRS_/Documents/Universidad/2020 II/Interfaces/Librerias JFreeChart by Recameca/Librerias JFreeChart/jfreechart-1.0.19.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

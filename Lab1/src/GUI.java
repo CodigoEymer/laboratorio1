@@ -27,19 +27,19 @@ public class GUI
 			  textArea = new JTextArea();//Es usado para guardar los valores de las señales
 			  //JPanel fondo = new JPanel();
 			  
-			  mainFrame = new JFrame("Diagramación GUI");
+			  mainFrame = new JFrame("GUI");
 			  mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		      mainFrame.setSize(800,440);
+		      mainFrame.setSize(880,550);
 
 		      SChannel = new seleccion_canal();
-		      SChannel.setBounds(0, 0, 200, 400);
+		      SChannel.setBounds(0, 65, 200, 370);
 		      
 		      Visual = new visualizacion(this);
-		      Visual.setBounds(200, 0, 400, 400);
+		      Visual.setBounds(200, 0, 500, 500);
 		      
 		      Active = new active_signals();
-		      Active.setBounds(600, 0, 200, 400);
+		      Active.setBounds(700, 160, 150, 180);
 		      
 		     
 		      

@@ -75,6 +75,7 @@ public class seleccion_canal extends JPanel
 		    buttonPanel1.add(Canal1);
 		    Canal1.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
+		        	 statusLabel.setText("Canal 1 seleccionado.");
 		        	 control = 1;
 		         }          
 		      });
@@ -185,7 +186,7 @@ public class seleccion_canal extends JPanel
 		    
 		    
 		    
-		    panel.add("An√°logo", buttonPanel1);
+		    panel.add("An·logo", buttonPanel1);
 		    panel.add("Digital", buttonPanel2);
 			
 		    JPanel botones = new JPanel();
