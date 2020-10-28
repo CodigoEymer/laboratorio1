@@ -8,11 +8,14 @@ import javax.swing.*;
 	public class active_signals extends JPanel
 	{
 		
-		int sel=0;
+		
 		int bin1=0;
 		int bin2=0;
 		int bin3=0;
 		int bin4=0;
+		transmicion Tdatos;
+		byte sel=0;
+		static byte Cabecera=0x2f;
 
 			/**
 		 * 
@@ -100,6 +103,8 @@ import javax.swing.*;
 		        		 sel -= 8;
 		        		 bin4=0;
 		        	 }
+		        	 
+		        	 
 		         }          
 		      });
 		    
@@ -110,8 +115,8 @@ import javax.swing.*;
 		    button1.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		        	 System.out.println(sel);
-		        	 //Se envia la variable sel
-		        	 //jfkdslfjañfdfds
+		        	 Tdatos = new transmicion(Cabecera);
+			         Tdatos = new transmicion(sel);
 		         }          
 		      });  
 			 

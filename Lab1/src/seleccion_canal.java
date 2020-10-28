@@ -14,7 +14,9 @@ public class seleccion_canal extends JPanel
 		JPanel uno;
 		plano Plane;
 		visualizacion Visual;
-		static int control;
+		transmicion Tdatos;
+		static byte control;
+		static byte Cabecera=0x1f;
 		
 		public seleccion_canal()
 		{
@@ -76,7 +78,9 @@ public class seleccion_canal extends JPanel
 		    Canal1.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		        	 statusLabel.setText("Canal 1 seleccionado.");
-		        	 control = 1;
+		        	 control = 0x00;
+		        	 Tdatos = new transmicion(Cabecera);
+		        	 Tdatos = new transmicion(control);
 		         }          
 		      });
 		    
@@ -86,7 +90,9 @@ public class seleccion_canal extends JPanel
 		    Canal2.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 2 seleccionado.");
-		            control = 2;
+		            control = 0x01;
+		            Tdatos = new transmicion(Cabecera);
+		            Tdatos = new transmicion(control);
 		         }          
 		      });
 		    
@@ -95,7 +101,9 @@ public class seleccion_canal extends JPanel
 		    Canal3.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 3 seleccionado.");
-		            control = 3;
+		            control = 0x02;
+		            Tdatos = new transmicion(Cabecera);
+		            Tdatos = new transmicion(control);
 		         }          
 		      });
 		    
@@ -104,7 +112,9 @@ public class seleccion_canal extends JPanel
 		    Canal4.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 4 seleccionado.");
-		            control = 4;
+		            control = 0x03;
+		            Tdatos = new transmicion(Cabecera);
+		            Tdatos = new transmicion(control);
 		         }          
 		      });
 		    
@@ -113,7 +123,9 @@ public class seleccion_canal extends JPanel
 		    Canal5.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 5 seleccionado.");
-		            control = 5;
+		            control = 0x04;
+		            Tdatos = new transmicion(Cabecera);
+		            Tdatos = new transmicion(control);
 		         }          
 		      });
 		    
@@ -122,7 +134,9 @@ public class seleccion_canal extends JPanel
 		    Canal6.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 6 seleccionado.");
-		            control = 6;
+		            control = 0x05;
+		            Tdatos = new transmicion(Cabecera);
+		            Tdatos = new transmicion(control);
 		         }          
 		      });
 		    
@@ -131,7 +145,9 @@ public class seleccion_canal extends JPanel
 		    Canal7.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 7 seleccionado.");
-		            control = 7;
+		            control = 0x06;
+		            Tdatos = new transmicion(Cabecera);
+		            Tdatos = new transmicion(control);
 		         }          
 		      });
 		    
@@ -140,7 +156,9 @@ public class seleccion_canal extends JPanel
 		    Canal8.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 8 seleccionado.");
-		            control = 8;
+		            control = 0x07;
+		            Tdatos = new transmicion(Cabecera);
+		            Tdatos = new transmicion(control);
 		         }          
 		      });
 		    
@@ -151,7 +169,9 @@ public class seleccion_canal extends JPanel
 		    Canal11.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 1 seleccionado.");
-		            control = 9;
+		            control = 0x08;
+		            Tdatos = new transmicion(Cabecera);
+		            Tdatos = new transmicion(control);
 		         }          
 		      });
 		    
@@ -161,7 +181,9 @@ public class seleccion_canal extends JPanel
 		    Canal21.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 2 seleccionado.");
-		            control = 10;
+		            control = 0x09;
+		            Tdatos = new transmicion(Cabecera);
+		            Tdatos = new transmicion(control);
 		         }          
 		      });
 		    
@@ -170,7 +192,9 @@ public class seleccion_canal extends JPanel
 		    Canal31.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 3 seleccionado.");
-		            control = 11;
+		            control = 0x0A;
+		            Tdatos = new transmicion(Cabecera);
+		            Tdatos = new transmicion(control);
 		         }          
 		      });
 		    
@@ -179,7 +203,9 @@ public class seleccion_canal extends JPanel
 		    Canal41.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		            statusLabel.setText("Canal 4 seleccionado.");
-		            control = 12;
+		            control = 0x0B;
+		            Tdatos = new transmicion(Cabecera);
+		            Tdatos = new transmicion(control);
 		            
 		         }          
 		      });
