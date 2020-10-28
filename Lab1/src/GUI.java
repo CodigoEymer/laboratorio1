@@ -12,8 +12,10 @@ public class GUI
 	active_signals Active;
 	seleccion_canal SChannel1;
 	
+	
 	JButton guardar;
 	JTextArea textArea;
+	transmicion Tdatos;
 	
 		public JFrame mainFrame;;
 		
@@ -21,7 +23,7 @@ public class GUI
 		{
 			new GUI();
 		}
-		
+		 
 		public GUI()
 		{
 			  textArea = new JTextArea();//Es usado para guardar los valores de las señales
@@ -41,8 +43,11 @@ public class GUI
 		      Active = new active_signals();
 		      Active.setBounds(700, 160, 150, 180);
 		      
-		     
 		      
+		      byte c=0x2c;
+		      Tdatos = new transmicion(c);
+
+
 		      //Al parecer, al agregar en la linea 53 el panel Active deja de ser modificable, debido a ser el ultimo
 		      //panel agregado, debido a esto se agrega uno mas y se deja invisible.
 		      SChannel1 = new seleccion_canal();
@@ -62,8 +67,6 @@ public class GUI
 		      mainFrame.setVisible(true);  
 		      //mainFrame.add(fondo);
 		}
-		
-		
 		
 		
 		public void guardarComo() {

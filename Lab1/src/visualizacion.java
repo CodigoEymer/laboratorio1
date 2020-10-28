@@ -19,6 +19,7 @@ public class visualizacion extends JPanel
 	GUI gui;
 	plano coordenadas;
 	seleccion_canal Sel;
+	recepcion rdatos;
 	
 		public visualizacion(GUI gui) 
 		{	
@@ -63,6 +64,8 @@ public class visualizacion extends JPanel
 			 Bgraficar.addActionListener(new ActionListener() {
 			         public void actionPerformed(ActionEvent e) {
 			        	 //
+			        	 rdatos =new recepcion();
+			        	 
 			        	 if (seleccion_canal.control==1) {
 			        		 coordenadas.graficador(cuadratica());
 			        	 }else if (seleccion_canal.control==2) {
