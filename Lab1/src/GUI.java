@@ -16,7 +16,9 @@ public class GUI
 	JButton guardar;
 	JTextArea textArea;
 	
-	
+	//transmicion Tdatos;
+	recepcion Rdatos;
+		
 		public JFrame mainFrame;;
 		
 		public static void main(String [] args)
@@ -43,7 +45,8 @@ public class GUI
 		      Active = new active_signals();
 		      Active.setBounds(700, 160, 150, 180);
 		      
-		      
+		      //Tdatos = new transmicion();
+		      Rdatos= new recepcion();
 
 
 		      //Al parecer, al agregar en la linea 53 el panel Active deja de ser modificable, debido a ser el ultimo

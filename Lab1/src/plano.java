@@ -18,7 +18,7 @@ import org.jfree.data.time.TimeSeriesCollection;
  * @author
  */
 public class plano extends JPanel{
-	final TimeSeries series = new TimeSeries("Mi grafica", Minute.class);
+	final TimeSeries series = new TimeSeries("GRAFICA", Minute.class);
 	final TimeSeriesCollection datos = new TimeSeriesCollection(series);
 	final JFreeChart grafica = ChartFactory.createTimeSeriesChart("", "t", "v", datos, true, true, true);
 	JPanel panel1=new ChartPanel(grafica);

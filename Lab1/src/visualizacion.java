@@ -19,7 +19,13 @@ public class visualizacion extends JPanel
 	GUI gui;
 	plano coordenadas;
 	seleccion_canal Sel;
+	
 	recepcion rdatos;
+	transmicion tdatos;
+	byte cabecera=0x4f;
+	byte control;
+	transmicion Tdatos;
+	recepcion Rdatos;
 	
 		public visualizacion(GUI gui) 
 		{	
@@ -27,6 +33,7 @@ public class visualizacion extends JPanel
 			JButton Bguardar;
 			JButton Bgraficar;
 			JButton Baplicar;
+			JButton Bdetener;
 			
 			 ///Configuracion panel general
 			
@@ -39,8 +46,10 @@ public class visualizacion extends JPanel
 			 JPanel panelnorte= new JPanel();
 			 Bguardar = new JButton(" Guardar");
 			 Bgraficar = new JButton("Graficar");
+			 Bdetener = new JButton("Detener");
 			 panelnorte.add(Bguardar);
 			 panelnorte.add(Bgraficar);
+			 panelnorte.add(Bdetener);
 			 this.add( panelnorte, BorderLayout.NORTH);
 			 ///Centro
 			 coordenadas = new plano();
@@ -64,7 +73,15 @@ public class visualizacion extends JPanel
 			 Bgraficar.addActionListener(new ActionListener() {
 			         public void actionPerformed(ActionEvent e) {
 			        	 //
-			        	 rdatos =new recepcion();
+			        	 
+			        	 control=1;
+			        	 recepcion.c=1;
+			        	 recepcion.cabecera=0x4f;
+			        	 recepcion.trama1=control;
+			        	 
+			        	 //Rdatos.envior(cabecera, control, trama2);
+
+			        	 
 			        	 
 			        	 if (seleccion_canal.control==1) {
 			        		 coordenadas.graficador(cuadratica());
@@ -75,6 +92,17 @@ public class visualizacion extends JPanel
 			        	 }
 			         }          
 			      });
+			 
+			 Bdetener.addActionListener(new ActionListener() {
+		         public void actionPerformed(ActionEvent e) {
+                 		control=0x00;
+                 		recepcion.c=1;
+                 		recepcion.cabecera=0x4f;
+			        	recepcion.trama1=control;
+                 		
+		         }  
+		         
+		      });
 			 
 			 Bguardar.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {

@@ -14,7 +14,9 @@ import javax.swing.*;
 		int bin3=0;
 		int bin4=0;
 		transmicion Tdatos;
+		recepcion Rdatos;
 		byte sel=0;
+		byte trama2=0;
 		static byte Cabecera=0x2f;
 
 			/**
@@ -103,8 +105,7 @@ import javax.swing.*;
 		        		 sel -= 8;
 		        		 bin4=0;
 		        	 }
-		        	 
-		        	 
+		        	 	 
 		         }          
 		      });
 		    
@@ -115,8 +116,13 @@ import javax.swing.*;
 		    button1.addActionListener(new ActionListener() {
 		         public void actionPerformed(ActionEvent e) {
 		        	 System.out.println(sel);
-		        	 Tdatos = new transmicion(Cabecera);
-			         Tdatos = new transmicion(sel);
+
+              		recepcion.c=1;
+              		recepcion.cabecera=0x2f;
+			        recepcion.trama1=sel;
+
+
+
 		         }          
 		      });  
 			 

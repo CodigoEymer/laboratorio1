@@ -10,12 +10,17 @@ public class transmicion implements Runnable, SerialPortEventListener
     static SerialPort serialPort;
     static OutputStream outputStream;
     static InputStream inputStream;
-    Thread writeThread;
+    static byte b;
+	
+	/* Thread writeThread; */
+	  Thread readThread;
+	 
+    
     static byte trama=0x2f;
 
 	
 	///////////////////////////////////////////////////////////////////////
-    public transmicion(byte b) 
+    public transmicion(byte b, byte trama1, byte trama2) 
 	{
 		
 		portList = CommPortIdentifier.getPortIdentifiers();
@@ -41,6 +46,7 @@ public class transmicion implements Runnable, SerialPortEventListener
 						{
 							outputStream = serialPort.getOutputStream();
 							inputStream = serialPort.getInputStream();
+							
 						} catch (IOException e) {}
 						
 						// Registrando eventos.
@@ -60,15 +66,20 @@ public class transmicion implements Runnable, SerialPortEventListener
 						} catch (UnsupportedCommOperationException e) {}
 						
 						// Enviando información.
-						try 
-						{
-							outputStream.write(b);
-							
-							
-						} catch (IOException e) {}
-
-						writeThread = new Thread(this);
-						writeThread.start();
+						try { 
+							  
+							  outputStream.write(b);
+							  outputStream.write(trama1);
+							  //outputStream.write(b);
+						  
+						  } catch (IOException e) {}
+						
+						
+						/* writeThread = new Thread(this); writeThread.start(); */
+						  
+						  readThread = new Thread(this); 
+						  readThread.start();
+						 
 					}
 				}
 			}
@@ -82,10 +93,13 @@ public class transmicion implements Runnable, SerialPortEventListener
 	try {
 	    while (true)
 		{
-		    Thread.sleep(0);
+		    Thread.sleep(200);
 			break;
 		}
-        } catch (InterruptedException e) {}
+        } catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 	///////////////////////////////////////////////////////////////////////
@@ -102,14 +116,29 @@ public class transmicion implements Runnable, SerialPortEventListener
 			case SerialPortEvent.DSR:
 			case SerialPortEvent.RI:
 			case SerialPortEvent.OUTPUT_BUFFER_EMPTY:
-				//System.out.println("\n El mensaje: \""+b+"\" ha sido enviado!");
+				System.out.println("\n La petición ha sido enviada!");
 				if (serialPort != null)
 					serialPort.close();
 					
 				break;
 				
 			case SerialPortEvent.DATA_AVAILABLE:
+				int numBytes=0;
+				byte[] readBuffer = new byte[10];
+
+				try 
+				{
+					while (inputStream.available() > 0) 
+					{
+						numBytes = inputStream.read(readBuffer);
+					}
+					
+					System.out.print("Mensaje recibido: ");
+					System.out.println(new String(readBuffer));					
+				} catch (IOException e) {}
+				
 				break;
         }
     }
+    
 }
